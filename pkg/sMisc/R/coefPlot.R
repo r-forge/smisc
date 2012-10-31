@@ -1,9 +1,9 @@
-default.interval <- function(fm)
+defaultInterval <- function(fm)
 {
   cbind(coef(fm), confint(fm))
 }
 
-wald.interval <- function(fm, use.summary = TRUE)
+waldInterval <- function(fm, use.summary = TRUE)
 {
   if(!use.summary)
   {
@@ -17,7 +17,7 @@ wald.interval <- function(fm, use.summary = TRUE)
   }
 }
 
-coef.plot <- function(..., var.names = NULL, log.y = FALSE, exclude = NULL, extractor.funcs = NULL)
+coefPlot <- function(..., var.names = NULL, log.y = FALSE, exclude = NULL, extractor.funcs = NULL)
 {
   # make list with model objects:
   model.list <- match.call(expand.dots = FALSE)$...
@@ -27,7 +27,7 @@ coef.plot <- function(..., var.names = NULL, log.y = FALSE, exclude = NULL, extr
   {
     extractor.funcs <- list()
     for(i in 1:length(model.list))
-      extractor.funcs[[i]] <- default.interval
+      extractor.funcs[[i]] <- defaultInterval
     names(extractor.funcs) <- model.names
   }
   # generate vector with var.names to be considered:

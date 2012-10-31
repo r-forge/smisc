@@ -1,7 +1,7 @@
-\name{coef.plot}
-\alias{coef.plot}
-\alias{default.interval}
-\alias{wald.ci}
+\name{coefPlot}
+\alias{coefPlot}
+\alias{defaultInterval}
+\alias{waldCi}
 
 \title{
 Compare the coefficients of different model fits
@@ -10,7 +10,7 @@ Compare the coefficients of different model fits
 blablabla
 }
 \usage{
-coef.plot(..., var.names = NULL, log.y = FALSE, exclude = NULL, extractor.funcs = NULL)
+coefPlot(..., var.names = NULL, log.y = FALSE, exclude = NULL, extractor.funcs = NULL)
 }
 \arguments{
   \item{\dots}{
@@ -51,8 +51,8 @@ No notes
 #library("faraway")
 fm1 <- lm(glucose ~ ., pima)
 fm2 <- update(fm1, ~. - pregnant)
-coef.plot(fm1, fm2)
-coef.plot(fm1, fm2, exclude = c("(Intercept)", "test", "diabetes"))
+coefPlot(fm1, fm2)
+coefPlot(fm1, fm2, exclude = c("(Intercept)", "test", "diabetes"))
 
 fm1 <- glm(test ~ ., binomial, pima)
 (coefs <- coef.plot(fm1, fm1, exclude = c("(Intercept)", "triceps", "pregnant", "test", "diabetes"), extractor.funcs = list(fm1 = default.interval, fm1 = wald.interval)))
