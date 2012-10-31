@@ -1,2 +1,0 @@
-export(coef.plot, wald.interval, default.interval)
-#exportPattern("^[[:alpha:]]+")
